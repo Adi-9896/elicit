@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TodayBuddy</string>
+    <string name="title_hint">\n</string>
+    <string name="query">Search your notes...</string>
+
+</resources>

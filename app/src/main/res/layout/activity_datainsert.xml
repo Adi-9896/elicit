@@ -1,0 +1,55 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#212529"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        android:layout_marginTop="42dp">
+        <EditText
+            android:id="@+id/Title"
+            style="@style/NoBoundariesEditText"
+            android:layout_width="match_parent"
+            android:layout_marginTop="0dp"
+            android:layout_height="match_parent"
+            android:hint="Title"
+            android:imeOptions="actionNext"
+            android:textSize="28dp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:minHeight="48dp"
+            android:textColor="#B7F8F5F5"
+            android:textColorHint="#B7FFFFFF" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- Color palette icon -->
+
+    <!-- Title input field -->
+
+
+    <!-- Content input field -->
+    <EditText
+        android:id="@+id/Display"
+        android:textColor="#B7F8F5F5"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_height="match_parent"
+        android:gravity="top|left"
+        android:layout_below="@+id/toolbar"
+        android:hint="Note"
+        android:textColorHint="#B7F8F5F5"
+        style="@style/NoBoundariesEditText"
+        android:inputType="textMultiLine"
+        android:maxLines="15"
+        android:minHeight="48dp"
+        android:padding="15dp"/>
+
+    <!-- Save button -->
+
+</RelativeLayout>

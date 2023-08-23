@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#F5F5F5</color>
+    <color name="colorPrimaryDark">#121212</color>
+
+    <color name="colorNote1">#FF5733</color>
+    <color name="colorNote2">#4CAF50</color>
+    <color name="colorNote3">#2196F3</color>
+    <!-- Add more colors -->
+
+    <!-- notes colors -->
+    <color name="c1">#adb5bd</color>
+    <color name="c2">#b8c0ff</color>
+    <color name="c3">#a8dadc</color>
+    <color name="c4">#FF8A80</color>
+    <color name="c5">#ffecd1</color>
+    <color name="c6">#fad643</color>
+    <color name="c7">#d8e2dc</color>
+    <color name="c8">#457b9d</color>
+    <color name="c9">#efd3d7</color>
+    <color name="c10">#9F4C956C</color>
+    <color name="c11">#ff70a6</color>
+    <color name="c12">#e4c1f9</color>
+
+
+
+</resources>
