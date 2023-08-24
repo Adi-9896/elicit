@@ -93,7 +93,7 @@ public class Datainsert extends AppCompatActivity {
             String oldtitle = getIntent().getStringExtra("notetext");
             String olddisplay = getIntent().getStringExtra("notedisplay");
 
-            if (!oldtitle.equals(title) || !olddisplay.equals(display)){
+            if (oldtitle != null && olddisplay != null &&(!oldtitle.equals(title)  || !olddisplay.equals(display))){
                 Intent i = new Intent();
                 i.putExtra("notetext", binding.Title.getText().toString());
                 i.putExtra("notedisplay", binding.Display.getText().toString());
@@ -101,13 +101,13 @@ public class Datainsert extends AppCompatActivity {
                 setResult(RESULT_OK, i);//this will send result in main activity
         }
             else {
-                //setResult(RESULT_CANCELED);
+                setResult(RESULT_CANCELED);
+                Toast.makeText(this, "update cancle", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(Datainsert.this,MainActivity.class));
 
             }
 
         }else {
-            //insert
             if (!TextUtils.isEmpty(title) || !TextUtils.isEmpty(display)) {
                 Intent i = new Intent();
                 i.putExtra("title", binding.Title.getText().toString());
@@ -117,11 +117,13 @@ public class Datainsert extends AppCompatActivity {
             }
             else {
                 setResult(RESULT_CANCELED); // Discard empty note
+                startActivity(new Intent(Datainsert.this,MainActivity.class));
+
             }
 
         }
         super.onBackPressed();
-        finish();
+        //finish();
     }
 
 

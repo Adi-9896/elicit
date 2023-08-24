@@ -1,8 +1,6 @@
 package com.example.todaybuddy;
 
-import static android.provider.SyncStateContract.Helpers.update;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,23 +8,21 @@ import androidx.appcompat.widget.SearchView;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
+
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.app.Application;
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
+
 import android.widget.Toast;
 
-import com.example.todaybuddy.databinding.ActivityDatainsertBinding;
+
 import com.example.todaybuddy.databinding.ActivityMainBinding;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -72,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
            }
        });
 
+//        binding.searchView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                binding.searchView.setIconified(false); // Open the SearchView when clicked
+//
+//            }
+//        });
+
         //to open keybord when click on searc view
 //        binding.searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
 //            @Override
@@ -94,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
         binding.RV.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-        //binding.RV.setHasFixedSize(true);
+        binding.RV.setHasFixedSize(true);
         RVadapter adapter = new RVadapter(noteviewmodel);
         binding.RV.setAdapter(adapter);
         itemlsit = new ArrayList<>();
@@ -136,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                          intent.putExtra("notetext",notes.getTitle());
                          intent.putExtra("notedisplay",notes.getDisplayText());
                          startActivityForResult(intent,2);
-
+                        // finish();
                      }
             }
         }).attachToRecyclerView(binding.RV);
@@ -194,32 +198,33 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-       // RVadapter adapter = new RVadapter();
-        if (data != null) {
-            if (requestCode == 1) {
+      //  RVadapter adapter = new RVadapter();
+
+            if (requestCode == 1&&resultCode==RESULT_OK&&data!=null) {
                 String title = data.getStringExtra("title");
                 String display = data.getStringExtra("display");
                 notes notes = new notes(title, display);
                 noteviewmodel.insert(notes);
+              //  adapter.notifyDataSetChanged();
 //            binding.RV.scrollToPosition(0);//after inserting new data it will automatically  scropp to top
                 //Toast.makeText(this, "Data Inserted", Toast.LENGTH_LONG).show();
-            } else if (requestCode == 2 ) {
+            } else if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
                 String title = data.getStringExtra("notetext");
                 String display = data.getStringExtra("notedisplay");
                 notes notes = new notes(title, display);
                 notes.setId(data.getIntExtra("noteid", 0));
                 noteviewmodel.update(notes);
                 // Notify the existing adapter attached to the RecyclerView
-               // RVadapter adapter = (RVadapter) binding.RV.getAdapter();
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Update Canceled", Toast.LENGTH_LONG).show();
+              // adapter = (RVadapter) binding.RV.getAdapter();
+                //adapter.notifyDataSetChanged();
             }
-        }
+
+            else if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "Update Canceled", Toast.LENGTH_LONG).show();
+                finish();
+            }
+
 
 
     }
-
-
-
-
 }
