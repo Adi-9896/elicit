@@ -11,18 +11,19 @@
     <!-- Add more colors -->
 
     <!-- notes colors -->
-    <color name="c1">#adb5bd</color>
+    <color name="c1">#6fffe9</color>
     <color name="c2">#b8c0ff</color>
     <color name="c3">#a8dadc</color>
-    <color name="c4">#FF8A80</color>
+    <color name="c4">#ff6b35</color>
     <color name="c5">#ffecd1</color>
-    <color name="c6">#fad643</color>
-    <color name="c7">#d8e2dc</color>
-    <color name="c8">#457b9d</color>
+    <color name="c6">#f4d35e</color>
+    <color name="c7">#aceca1</color>
+    <color name="c8">#d62839</color>
     <color name="c9">#efd3d7</color>
-    <color name="c10">#9F4C956C</color>
-    <color name="c11">#ff70a6</color>
+    <color name="c10">#e2afff</color>
+    <color name="c11">#b5f8fe</color>
     <color name="c12">#e4c1f9</color>
+    <color name="bb">#0a0908</color>
 
 
 

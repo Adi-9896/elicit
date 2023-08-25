@@ -17,11 +17,8 @@ public class splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        lottieAnimationView = findViewById(R.id.lottie);
+        Intent intent = new Intent(this, MainActivity.class);
 
-        lottieAnimationView.addAnimatorListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -29,8 +26,6 @@ public class splash extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }
-                },100);
+                },2000);
             }
-        });
-    }
 }

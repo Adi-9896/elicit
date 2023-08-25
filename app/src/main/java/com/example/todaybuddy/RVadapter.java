@@ -26,7 +26,6 @@ import java.util.Random;
 
 public class RVadapter  extends ListAdapter<notes,RVadapter.Viewholder>{
 
-    private int [] notecolors= {R.color.colorNote1, R.color.colorNote2, R.color.colorNote3};
     List <notes> allnotes;
     List <notes> notes;
 
@@ -68,11 +67,10 @@ public class RVadapter  extends ListAdapter<notes,RVadapter.Viewholder>{
         notes note = getItem(position);
         holder.binding.titlerv.setText(note.getTitle());
         holder.binding.displayrv.setText(note.getDisplayText());
-//        int colorindex = position%notecolors.length;
-//        int colrres   = notecolors[colorindex];
-//        //holder.binding.card.setCardBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(),colrres));
         int colorcode =getrandomcolor();
         holder.binding.card.setCardBackgroundColor(holder.itemView.getResources().getColor(colorcode,null));
+
+        //Simple update
       holder.itemView.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -86,6 +84,7 @@ public class RVadapter  extends ListAdapter<notes,RVadapter.Viewholder>{
 
           }
       });
+      //Delete
       holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
           @Override
           public boolean onLongClick(View view) {
@@ -147,12 +146,11 @@ public class RVadapter  extends ListAdapter<notes,RVadapter.Viewholder>{
         int num = Random.nextInt(random.size());
         return random.get(num);
     }
-
-
     public notes getnote(int position){
 
         return getItem(position);
     }
+
     public  class  Viewholder extends RecyclerView.ViewHolder{
              ListitemRvBinding binding;
 

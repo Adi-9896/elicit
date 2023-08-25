@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">TodayBuddy</string>
+    <string name="app_name">elicit</string>
     <string name="title_hint">\n</string>
+    <string name="intro">Notes you add appear here</string>
+    <string name="intro2">Use the + button to create a new note</string>
+    <string name="intro3">Swipe right to update your note</string>
+    <string name="intro4">Swipe left to delete your note </string>
     <string name="query">Search your notes...</string>
 
 </resources>
